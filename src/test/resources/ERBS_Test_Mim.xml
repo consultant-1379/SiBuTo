@@ -1,0 +1,2023 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+This file was automatically generated from RSA
+-->
+
+<models>
+
+	<dtdVersion>E</dtdVersion>
+
+	<momMetaData>
+		<momTitle></momTitle>
+		<momSubTitle></momSubTitle>
+		<momIdentity>
+			<docNum>CXC1738789/25</docNum>
+			<docLang></docLang>
+			<docRev>R25E02</docRev>
+			<docDate>Thu Jan 28 08:58:45 CET 2016</docDate>
+		</momIdentity>
+		<createdBy>
+			<signature>qrunjoh</signature>
+			<name></name>
+		</createdBy>
+		<approvedBy>
+			<signature></signature>
+			<name></name>
+		</approvedBy>
+	</momMetaData>
+
+	<mim name="ERBS_NODE_MODEL_G" version="1" release="281" author="uabudd" date="Thu Jan 28 08:58:45 CET 2016" revision="R25E02">
+		<applicationTag>LTE MOM FOR L16B</applicationTag>
+
+		<copyright>
+			<company>Ericsson</company>
+			<year>2016</year>
+			<disclaimer>The contents of this document are subject to revision without notice due to continued progress in methodology, design and manufacturing. Ericsson shall have no liability for any error or damage of any kind resulting from the use of this document.</disclaimer>
+		</copyright>
+
+		<mimParts>
+		    <mimPart>
+				<name>ManagedElement</name>
+				<label>EMX_BUILD_LABEL_NOT_DEFINED</label>
+				<label>MOM-CPP-LSV180</label>
+			</mimPart>
+			<mimPart>
+				<name>SwManagement</name>
+				<label>EMX_BUILD_LABEL_NOT_DEFINED</label>
+				<label>MOM-CPP-LSV154</label>
+			</mimPart>
+		</mimParts>
+
+		<class name="ManagedElement">
+			<description>Managed Element
+
+This MO is the top MO in the MOM. A management application will communicate with the ManagedElement MO for the purpose of monitoring and controlling it.
+
+This MO is created automatically and cannot be deleted.
+
+The RDN of this MO is ManagedElement=1.
+</description>
+			<systemCreated/>
+			<attribute name="ManagedElementId">
+				<description>The value component of the RDN.
+
+It is set automatically when the MO instance is created.
+</description>
+				<mandatory></mandatory>
+				<noNotification></noNotification>
+				<restricted></restricted>
+				<dataType>
+					<string></string>
+				</dataType>
+			</attribute>
+			<attribute name="userLabel">
+				<description>Label for free use.
+</description>
+				<dataType>
+					<string>
+						<lengthRange>
+							<min>0</min>
+							<max>128</max>
+						</lengthRange>
+						<defaultValue/>
+					</string>
+				</dataType>
+			</attribute>
+			<attribute name="site">
+				<description>This attribute gives information about geographical location, for example place name.
+</description>
+				<dataType>
+					<string>
+						<lengthRange>
+							<min>0</min>
+							<max>255</max>
+						</lengthRange>
+						<defaultValue/>
+					</string>
+				</dataType>
+			</attribute>
+			<attribute name="logicalName">
+				<description>Specifies the logical name of a node.
+
+Note: When used by LTE, the usage is restricted.</description>
+				<dataType>
+					<string>
+						<lengthRange>
+							<min>0</min>
+							<max>255</max>
+						</lengthRange>
+						<defaultValue/>
+					</string>
+				</dataType>
+			</attribute>
+			<attribute name="productType">
+				<description>This attribute describes the product type and is always set to the value "Node".
+</description>
+				<noNotification></noNotification>
+				<restricted></restricted>
+				<dataType>
+					<string>
+						<defaultValue>Node</defaultValue>
+					</string>
+				</dataType>
+			</attribute>
+			<attribute name="productName">
+				<description>This attribute describes the implemented functionality.
+</description>
+				<dataType>
+					<string>
+						<lengthRange>
+							<min>0</min>
+							<max>12</max>
+						</lengthRange>
+						<defaultValue/>
+					</string>
+				</dataType>
+			</attribute>
+			<attribute name="productNumber">
+				<description>This attribute uniquely identifies the product, for example ROF123.
+</description>
+				<dataType>
+					<string>
+						<lengthRange>
+							<min>0</min>
+							<max>24</max>
+						</lengthRange>
+						<defaultValue/>
+					</string>
+				</dataType>
+			</attribute>
+			<attribute name="productRevision">
+				<description>This attribute identifies the version of the product, for example R2A.
+</description>
+				<dataType>
+					<string>
+						<lengthRange>
+							<min>0</min>
+							<max>7</max>
+						</lengthRange>
+						<defaultValue/>
+					</string>
+				</dataType>
+			</attribute>
+			<attribute name="mimName">
+				<description>The name and version of the MIM on the node.
+</description>
+				<noNotification></noNotification>
+				<readOnly></readOnly>
+				<dataType>
+					<string></string>
+				</dataType>
+				<deprecated>Replaced by mimInfo</deprecated>
+			</attribute>
+			<attribute name="faultTolerantCoreStates">
+				<description>Retrieves information of PIUs (maximum 2 PIUs) that are running Fault Tolerant Core (FTC). This attribute contains an array of strings, for example:
+
+ManagedElement=1,Equipment=1,Subrack=1,Slot=1,PlugInUnit=1;ftcState=Active
+ManagedElement=1,Equipment=1,Subrack=1,Slot=2,PlugInUnit=1;ftcState=PassiveReady
+
+The possible FTC states are Init, NotConfigured, Active, Unavailable, PassiveNotReady, PassiveReady.
+</description>
+				<noNotification></noNotification>
+				<readOnly></readOnly>
+				<dataType>
+					<sequence>
+					<string></string>
+						<minLength>0</minLength>
+					</sequence>
+				</dataType>
+			</attribute>
+			<attribute name="applicationConfiguration">
+				<description>Specifies configuration data critical for an application.</description>
+				<dataType>
+					<sequence>
+					<structRef name="MeApplicationConfigurationData"></structRef>
+						<minLength>0</minLength>
+					</sequence>
+				</dataType>
+			</attribute>
+			<attribute name="mimInfo">
+				<description>The name, version and release of the MIM.
+</description>
+				<noNotification></noNotification>
+				<readOnly></readOnly>
+				<dataType>
+					<structRef name="MimInfo"></structRef>
+				</dataType>
+			</attribute>
+			<attribute name="healthCheckSchedule">
+				<description>The scheduled time and weekday, when the health check starts.
+</description>
+				<dataType>
+					<sequence>
+					<structRef name="ScheduleEntry"></structRef>
+						<minLength>0</minLength>
+						<maxLength>14</maxLength>
+					</sequence>
+				</dataType>
+			</attribute>
+			<attribute name="healthCheckResult">
+				<description>The result of the latest health check.
+</description>
+				<nonPersistent></nonPersistent>
+				<readOnly></readOnly>
+				<dataType>
+					<structRef name="HealthCheckResult"></structRef>
+				</dataType>
+			</attribute>
+			<action name="startHealthCheck">
+				<description>Initiates a health check.
+
+The health check investigates consistency of the file systems, configuration versions and upgrade packages.
+Alarms will be generated if a fault is found, see the alarms:
+- File System Diagnostic Error
+- Configuration Version Corrupt
+- Upgrade Package Corrupt
+
+Only one health check action at a time can be active. Further attempts to start the health check are rejected. If the attribute operationalState of a PlugInUnit MO instance is set to DISABLED, the corresponding plug-in unit is not checked.
+
+During an ongoing health check, configuration versions cannot be created or deleted.</description>
+				<returnType>
+					<enumRef name="HealthCheckActionResult"></enumRef>
+				</returnType>
+				<transactionRequired>false</transactionRequired>
+			</action>
+			<action name="manualRestart">
+				<description>Manual restart of the node.
+</description>
+				<returnType>
+					<void></void>
+				</returnType>
+				<parameter name="restartRank">
+					<description>The restart rank.</description>
+					<in></in>
+					<dataType>
+						<enumRef name="RestartRank"></enumRef>
+					</dataType>
+				</parameter>
+				<parameter name="restartReason">
+					<description>The reason for the restart.</description>
+					<in></in>
+					<dataType>
+						<enumRef name="RestartReason"></enumRef>
+					</dataType>
+				</parameter>
+				<parameter name="restartInfo">
+					<description>A free text field where extra information can be added.</description>
+					<in></in>
+					<dataType>
+						<string>
+							<lengthRange>
+								<min>0</min>
+								<max>80</max>
+							</lengthRange>
+						</string>
+					</dataType>
+				</parameter>
+				<transactionRequired>false</transactionRequired>
+				<disturbances>manualRestart causes loss of traffic!</disturbances>
+			</action>
+		</class>
+				<class name="ENodeBFunction">
+			<systemCreated/>
+			<attribute name="timeAndPhaseSynchCritical">
+				<description>If set to true, the cell will be disabled if the time and phase synchronization accuracy of the eNodeB is not fulfilled.</description>
+				<dataType>
+					<boolean>
+						<defaultValue>false</defaultValue>
+					</boolean>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="ENodeBFunctionId">
+				<description>The value component of the RDN.
+</description>
+				<mandatory></mandatory>
+				<noNotification></noNotification>
+				<restricted></restricted>
+				<dataType>
+					<string></string>
+				</dataType>
+			</attribute>
+			<attribute name="userLabel">
+				<description>Label for free use.
+</description>
+				<dataType>
+					<string>
+						<lengthRange>
+							<min>0</min>
+							<max>128</max>
+						</lengthRange>
+						<defaultValue/>
+					</string>
+				</dataType>
+			</attribute>
+			<attribute name="sctpRef">
+				<description>Refers to the SCTP instance that is used to configure the SCTP host for S1 and X2 connections.</description>
+				<dataType>
+					<moRef name="Sctp"></moRef>
+				</dataType>
+				<takesEffect>At node restart</takesEffect>
+			</attribute>
+			<attribute name="dnsLookupOnTai">
+				<description>Controls if the Tracking Area Identity (TAI) is used to get IP addresses of MME nodes from the Domain Name System (DNS).
+
+The RBS uses TAI to automatically obtain all MME IP addresses from the DNS when dnsLookupOnTai is switched on, or at RBS start or restart.
+
+The MME IP address list is refreshed periodically and MME connections released and setup according to the new list. The MME IP address list can also be refreshed from OSS-RC.</description>
+				<dataType>
+					<enumRef name="DnsLookup">
+						<defaultValue>ON</defaultValue>
+					</enumRef>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="dnsLookupTimer">
+				<description>The interval to perform DNS Lookup to get potential new IP addresses of MME nodes. DNS lookup is performed for the TAI domain name. If the value is set to zero, then no periodic DNS Lookup is done.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>0</min>
+							<max>1000</max>
+						</range>
+						<defaultValue>0</defaultValue>
+						<unit>Hour</unit>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="dscpLabel">
+				<description>Static mapping of DiffServ label for control messages, Performance Management (PM), and Non-Access Stratum (NAS).</description>
+				<dataType>
+					<long>
+						<range>
+							<min>0</min>
+							<max>63</max>
+						</range>
+						<defaultValue>24</defaultValue>
+					</long>
+				</dataType>
+				<dependencies>Will only be used then dscpUsage is active.</dependencies>
+				<takesEffect>Node restart</takesEffect>
+			</attribute>
+			<attribute name="eNBId">
+				<description>The ENodeB ID that forms part of the Cell Global Identity, and is also used to identify the node over the S1 interface.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>-1</min>
+							<max>1048575</max>
+						</range>
+						<defaultValue>-1</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>At node restart</takesEffect>
+			</attribute>
+			<attribute name="eNodeBPlmnId">
+				<description>The ENodeB Public Land Mobile Network (PLMN) ID that forms part of the ENodeB Global ID used to identify the node over the S1 interface.
+Note: The value (MCC=001, MNC=01) indicates that the PLMN is not initiated. The value can not be used as a valid PLMN Identity.
+</description>
+				<mandatory></mandatory>
+				<dataType>
+					<structRef name="PlmnIdentity"></structRef>
+				</dataType>
+				<takesEffect>At node restart</takesEffect>
+			</attribute>
+			<attribute name="x2BlackList">
+				<description>A list of blacklisted RBS IDs. X2 may not be set up to any neighbor RBS in the blacklist.</description>
+				<dataType>
+					<sequence>
+					<structRef name="GlobalEnbId"></structRef>
+						<minLength>0</minLength>
+						<maxLength>64</maxLength>
+						<nonUnique/>
+					</sequence>
+				</dataType>
+				<disturbances>If an eNB is added to the list, any termPointToEnb for this external eNB is removed.</disturbances>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="x2retryTimerMaxAuto">
+				<description>See attribute x2RetryTimerStart.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>0</min>
+							<max>60000</max>
+						</range>
+						<defaultValue>1440</defaultValue>
+						<unit>minute</unit>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="x2retryTimerStart">
+				<description>After failed X2 setup and after X2 link break the x2RetryTimer is used to control the time till next retry. x2RetryTimer is used for DNS, SCTP, X2AP retries and x2IpAddrViaS1.
+
+After first failed setup or missing IP address from DNS, x2RetryTimer = max(x2RetryTimerStart,W), where W is the timeToWait received in x2SetupFail. If W is not received, W=0.
+
+After link break, x2RetryTimer = random(0,x2RetryTimerStart). If the first setup after link break fails, the timer values according to the above and below paragraphs shall apply as for failed inital setup.
+
+After 2nd and following fails, if the X2 connection is not being setup by ANR in the S-RBS, x2RetryTimer = max(x2RetryTimerStart,W).
+
+After 2nd and following fails, if the X2 connection is being setup by ANR in the S-RBS, x2RetryTimer = max(min[2^(n-2)*x2RetryTimerStart, x2retryTimerMaxAuto], W), where n is failure number.
+
+Each W is only used in the first retry after it is received.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>0</min>
+							<max>1000</max>
+						</range>
+						<defaultValue>30</defaultValue>
+						<unit>s</unit>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="x2WhiteList">
+				<description>The list of whitelisted RBS IDs. Automated Neighbor Relations (ANR) is not allowed to disconnect X2 for any neighbor RBS in the whitelist.</description>
+				<dataType>
+					<sequence>
+					<structRef name="GlobalEnbId"></structRef>
+						<minLength>0</minLength>
+						<maxLength>64</maxLength>
+						<nonUnique/>
+					</sequence>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="s1RetryTimer">
+				<description>Defines the frequency to perform re-establishment of SCTP and S1-AP connection,
+when the connection to a MME is lost.
+</description>
+				<dataType>
+					<long>
+						<range>
+							<min>1</min>
+							<max>300</max>
+						</range>
+						<defaultValue>30</defaultValue>
+						<unit>s</unit>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="ulSchedulerDynamicBWAllocationEnabled">
+				<description>Specifies if the advanced UL scheduler is enabled
+
+</description>
+				<dataType>
+					<boolean>
+						<defaultValue>true</defaultValue>
+					</boolean>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="upIpAccessHostRef">
+				<description>Refers to the IpAccessHostEt instance to use for configuring the IP access host for S1 and X2 user plane connections. This attribute must contain a valid MO reference if the IPsec function is used.</description>
+				<dataType>
+					<moRef name="IpAccessHostEt"></moRef>
+				</dataType>
+				<deprecated>Since L14A. Replaced by upIpAddressRef</deprecated>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="x2IpAddrViaS1Active">
+				<description>Indicates if the function X2 IP addresses over S1 is active in the RBS.</description>
+				<dataType>
+					<boolean>
+						<defaultValue>true</defaultValue>
+					</boolean>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="nnsfMode">
+				<description>The mode used by the RBS for the non-access stratum node selection.
+
+Regardless of the mode used, the function attempts to:
+
+- Reconnect every UE to its registered MME in any of the tracking areas of the cell.
+
+- Distribute the UEs that are not reconnected among MMEs that serve the Public Land Mobile Network selected by each UE.</description>
+				<dataType>
+					<enumRef name="NnsfModeVals">
+						<defaultValue>RPLMN_IF_SAME_AS_SPLMN</defaultValue>
+					</enumRef>
+				</dataType>
+				<takesEffect>New connection</takesEffect>
+			</attribute>
+			<attribute name="rrcConnReestActive">
+				<description>Indicates if the feature RRC Connection Reestablishment is ACTIVATED or DEACTIVATED.</description>
+				<dataType>
+					<boolean>
+						<defaultValue>false</defaultValue>
+					</boolean>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary1">
+				<description>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<string>
+						<defaultValue/>
+					</string>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary2">
+				<description>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<string>
+						<defaultValue/>
+					</string>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary3">
+				<description>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<string>
+						<defaultValue/>
+					</string>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary4">
+				<description>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<string>
+						<defaultValue/>
+					</string>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary5">
+				<description>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<string>
+						<defaultValue/>
+					</string>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary6">
+				<description>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<string>
+						<defaultValue/>
+					</string>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary7">
+				<description>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<string>
+						<defaultValue/>
+					</string>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary8">
+				<description>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<string>
+						<defaultValue/>
+					</string>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary9">
+				<description>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary10">
+				<description>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary11">
+				<description>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary12">
+				<description>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="pmZtemporary34">
+				<description>Normally this counter is not used, it can however sometimes be temporarily used for very late additions in a release. If so, for description see Network Impact Report in the CPI.</description>
+				<noNotification></noNotification>
+				<nonPersistent></nonPersistent>
+				<readOnly></readOnly>
+				<dataType>
+					<long></long>
+				</dataType>
+				<condition>-</condition>
+				<counterType>ACC</counterType>
+				<samplingRate>-</samplingRate>
+				<scanner>Not included in any predefined scanner </scanner>
+				<counterReset>true</counterReset>
+			</attribute>
+			<attribute name="pmZtemporary35">
+				<description>Normally this counter is not used, it can however sometimes be temporarily used for very late additions in a release. If so, for description see Network Impact Report in the CPI.</description>
+				<noNotification></noNotification>
+				<nonPersistent></nonPersistent>
+				<readOnly></readOnly>
+				<dataType>
+					<long></long>
+				</dataType>
+				<condition>-</condition>
+				<counterType>ACC</counterType>
+				<samplingRate>-</samplingRate>
+				<scanner>Not included in any predefined scanner </scanner>
+				<counterReset>true</counterReset>
+			</attribute>
+			<attribute name="x2SetupTwoWayRelations">
+				<description>This parameter indicates if two way relations shall be setup during X2 setup and eNB configuration. The RBS creates a two-way relation for each entry in the received neighbour information that contains a relation to a source cell. Neighbour information is sent in X2 setup and eNB configuration. Neighbour information is eUtranCellRelations per source cell from the sending node.</description>
+				<dataType>
+					<boolean>
+						<defaultValue>true</defaultValue>
+					</boolean>
+				</dataType>
+				<takesEffect>New connection</takesEffect>
+			</attribute>
+			<attribute name="timePhaseMaxDeviation">
+				<description>Defines the maximum allowed time/phase deviation for time/phase synchronization of the eNodeB.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>9</min>
+							<max>100</max>
+						</range>
+						<defaultValue>100</defaultValue>
+						<unit>microseconds</unit>
+						<multiplicationFactor>0.1</multiplicationFactor>
+					</long>
+				</dataType>
+				<dependencies>This parameter is relevant when the parameter timeAndPhaseSynchCritical has the value true.</dependencies>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="licCapDistrMethod">
+				<description>Used to set how the licensed capacity will be distributed between the baseband processing resources</description>
+				<dataType>
+					<enumRef name="LicCapDistrMethod">
+						<defaultValue>SYSTEM</defaultValue>
+					</enumRef>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="pmPagS1Received">
+				<description>This counter counts the number of received S1AP Paging messages in the RBS. Both non prioritized and prioritized S1AP Paging messages are included.</description>
+				<noNotification></noNotification>
+				<nonPersistent></nonPersistent>
+				<readOnly></readOnly>
+				<dataType>
+					<long></long>
+				</dataType>
+				<condition>When a S1AP Paging is received from an MME which is correct and complete. S1AP Paging messages containing ASN.1 errors are not counted. </condition>
+				<counterType>ACC</counterType>
+				<samplingRate>-</samplingRate>
+				<scanner>Not included in any predefined scanner </scanner>
+				<counterReset>true</counterReset>
+			</attribute>
+			<attribute name="pmPagS1Discarded">
+				<description>The number of S1AP Paging messages that are discarded (and not routed to any cell) due to that the maximum number of incoming S1AP Paging messages during a certain time interval is reached. This counter is a subset of pmPagS1Received. Both non prioritized and prioritized S1AP Paging messages are included.</description>
+				<noNotification></noNotification>
+				<nonPersistent></nonPersistent>
+				<readOnly></readOnly>
+				<dataType>
+					<long></long>
+				</dataType>
+				<condition>An S1AP Paging message is discarded due to max intensity of incoming S1AP Paging messages is reached.</condition>
+				<counterType>ACC</counterType>
+				<samplingRate>-</samplingRate>
+				<scanner>Not included in any predefined scanner </scanner>
+				<counterReset>true</counterReset>
+			</attribute>
+			<attribute name="s1HODirDataPathAvail">
+				<description>S1 Handover data forwarding can be of two types, direct and indirect. Direct forwarding requires direct connectivity between source and target eNodeB. This parameter is used to indicate if such direct connectivity exist.</description>
+				<dataType>
+					<boolean>
+						<defaultValue>false</defaultValue>
+					</boolean>
+				</dataType>
+				<dependencies>Optional Feature Data Forwarding at S1 Handover</dependencies>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="minRandc">
+				<description>Rand range datatype is the eight most significant bits (MSB) of the Rand used for authentication.
+This attribute controls the minimum random number value that can be generated. Typically a range of random numbers is allocated to each system using this attribute.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>1</min>
+							<max>254</max>
+						</range>
+						<defaultValue>1</defaultValue>
+					</long>
+				</dataType>
+				<dependencies>minRandc &lt; maxRandc</dependencies>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="maxRandc">
+				<description>Rand range datatype is the eight most significant bits (MSB) of the Rand used for authentication.
+This attribute controls the maximum random number value that can be generated. Typically a range of random numbers is allocated to each system using this attribute.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>2</min>
+							<max>255</max>
+						</range>
+						<defaultValue>255</defaultValue>
+					</long>
+				</dataType>
+				<dependencies>maxRandc &gt; minRandc</dependencies>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="randUpdateInterval">
+				<description>Random number update interval
+This attribute specifies the time interval in minutes between random number generation. When this interval expires, the eNodeB generates a new random number between MinRandc and MaxRandc.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>15</min>
+							<max>1440</max>
+						</range>
+						<defaultValue>200</defaultValue>
+						<unit>minutes</unit>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary13">
+				<description>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary14">
+				<description>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<deprecated>Since L16A. Replaced by UeMeasControl::bothA5RsrpRsrqCheck. Planned to be removed.</deprecated>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary15">
+				<description>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary16">
+				<description>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary17">
+				<description>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="mfbiSupport">
+				<description>Specifies whether the feature Multiple Frequency Band Indicators is supported in the eNB.</description>
+				<readOnly></readOnly>
+				<dataType>
+					<boolean></boolean>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="pmMoFootprintMax">
+				<description>This counter specifies the current footprint in the eNB from the configured MO instances for all different Cell Relations and External Cells in relation to the MO system limit. The higher the value, the more internal memory is consumed in the eNB for MO instances for the different types of Cell Relations and External Cells. The value is the highest sampled value during a ROP period. When the value reaches 100, further creation attempts for MO instances are rejected.</description>
+				<noNotification></noNotification>
+				<nonPersistent></nonPersistent>
+				<readOnly></readOnly>
+				<dataType>
+					<long></long>
+				</dataType>
+				<condition>This counter is set to the latest available MO footprint calculation at the ROP period end.</condition>
+				<counterType>GAUGE</counterType>
+				<samplingRate>300 seconds</samplingRate>
+				<scanner>Primary</scanner>
+				<counterReset>true</counterReset>
+			</attribute>
+			<attribute name="upIpAddressRef">
+				<description>Refers to the IpAccessHostEt or AddressIPv4/AddressIPv6 instance to use for configuring the IP address for S1 and X2 user plane connections.</description>
+				<dataType>
+					<moRef name="IpAccessHostEt"></moRef>
+				</dataType>
+				<disturbances>Changing this attribute can affect traffic. A node restart is required.</disturbances>
+				<takesEffect>At node restart</takesEffect>
+			</attribute>
+			<attribute name="pwsPersistentStorage">
+				<description>Decides whether or not PWS data must be persistently stored.</description>
+				<dataType>
+					<enumRef name="PersistentStorage">
+						<defaultValue>OFF</defaultValue>
+					</enumRef>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="csfbMeasFromIdleMode">
+				<description>When CS Fallback is requested for a UE in idle mode this parameter controls if measurements for release with redirect and handover must be performed. If the parameter is set to false a blind release with redirect is done.</description>
+				<dataType>
+					<boolean>
+						<defaultValue>true</defaultValue>
+					</boolean>
+				</dataType>
+				<dependencies>This parameter is only relevant for features &apos;Measurement-Based CSFB Target Selection&apos; and &apos;PSHO-based CS Fallback to WCDMA&apos; .</dependencies>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="pmPagS1RecDistr">
+				<description>This distribution counter counts the number of received S1AP Paging messages in the RBS per priority level. The counter is only valid if the feature Priority Paging is activated.
+
+Ranges:
+[0]: No Priority level
+[1]: Priority level 1
+[2]: Priority level 2
+[3]: Priority level 3
+[4]: Priority level 4
+[5]: Priority level 5
+[6]: Priority level 6
+[7]: Priority level 7
+[8]: Priority level 8
+</description>
+				<noNotification></noNotification>
+				<nonPersistent></nonPersistent>
+				<readOnly></readOnly>
+				<dataType>
+					<sequence>
+					<long></long>
+						<minLength>0</minLength>
+						<maxLength>9</maxLength>
+						<nonUnique/>
+					</sequence>
+				</dataType>
+				<condition>Appropriate bin is incremented depending on which priority level that is indicated in the S1AP Paging message.</condition>
+				<counterType>PDF</counterType>
+				<samplingRate>-</samplingRate>
+				<scanner>Not included in any predefined scanner </scanner>
+				<counterReset>true</counterReset>
+			</attribute>
+			<attribute name="pmPagS1DiscDistr">
+				<description>The number of S1AP Paging messages that are discarded (and not routed to any cell) due to that the maximum number of incoming S1AP Paging messages during a certain time interval is reached. This distribution counter is a subset of pmPagS1RecDistr and is per priority level. The counter is only valid if the feature Priority Paging is activated.
+
+Ranges:
+[0]: No Priority level
+[1]: Priority level 1
+[2]: Priority level 2
+[3]: Priority level 3
+[4]: Priority level 4
+[5]: Priority level 5
+[6]: Priority level 6
+[7]: Priority level 7
+[8]: Priority level 8
+</description>
+				<noNotification></noNotification>
+				<nonPersistent></nonPersistent>
+				<readOnly></readOnly>
+				<dataType>
+					<sequence>
+					<long></long>
+						<minLength>0</minLength>
+						<maxLength>9</maxLength>
+						<nonUnique/>
+					</sequence>
+				</dataType>
+				<condition>Appropriate bin is incremented depending on which priority level that is indicated in the S1AP Paging message.</condition>
+				<counterType>PDF</counterType>
+				<samplingRate>-</samplingRate>
+				<scanner>Not included in any predefined scanner </scanner>
+				<counterReset>true</counterReset>
+			</attribute>
+			<attribute name="tRelocOverallValue">
+				<description>Supervision timer of the outgoing S1/X2/intra-eNodeB handover execution procedure according to 3GPP TS 36.413 and TS 36.423.
+If the feature Multi-Target RRC Connection Re-establishment is active this timer also supervises the Context Fetch procedure.
+</description>
+				<dataType>
+					<long>
+						<range>
+							<min>1</min>
+							<max>32000</max>
+						</range>
+						<defaultValue>5</defaultValue>
+						<unit>s</unit>
+					</long>
+				</dataType>
+				<deprecated>Since L16B. Replaced by attribute tRelocOverall. Planned to be removed.</deprecated>
+				<takesEffect>New connection</takesEffect>
+			</attribute>
+			<attribute name="forcedSiTunnelingActive">
+				<description>Specifies whether or not the functionality to send NACC information, regardless of UE capability, is activated, provided that the feature Redirect with System Information is active.</description>
+				<dataType>
+					<boolean>
+						<defaultValue>false</defaultValue>
+					</boolean>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="initPreschedulingEnable">
+				<description>Indicates that prescheduling is enabled during connection setup phase.</description>
+				<dataType>
+					<boolean>
+						<defaultValue>true</defaultValue>
+					</boolean>
+				</dataType>
+				<takesEffect>Object unlocked</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary18">
+				<description>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary19">
+				<description>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<deprecated>Since L16A. Replaced by the attribute mfbiSupportPolicy. Planned to be removed.</deprecated>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary20">
+				<description>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<deprecated>Since L16A.  Replaced by attribute tddVoipDrxProfileId.  Planned to be removed.</deprecated>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary21">
+				<description>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary22">
+				<description>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary23">
+				<description>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary24">
+				<description>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary25">
+				<description>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary26">
+				<description>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary27">
+				<description>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<deprecated>Since L16A. Replaced by attribute EUtranCellFDD/EUtranCellTDD::servOrPrioIFHoSetupBearer. Planned to be removed.</deprecated>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="tOutgoingHoExecCdma1xRtt">
+				<description>Supervision timer of the outgoing LTE to CDMA 1xRtt handover execution procedure.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>1</min>
+							<max>32000</max>
+						</range>
+						<defaultValue>5</defaultValue>
+						<unit>s</unit>
+					</long>
+				</dataType>
+				<takesEffect>Cell lock/unlock</takesEffect>
+			</attribute>
+			<attribute name="pmLic5MHzSectorCarrierActual">
+				<description>Current number of licensed 5+5 MHz Sector Carrier capacity units that are allocated to cells.</description>
+				<noNotification></noNotification>
+				<nonPersistent></nonPersistent>
+				<readOnly></readOnly>
+				<dataType>
+					<long></long>
+				</dataType>
+				<condition>Utilization of 5+5 MHz Sector Carriers is monitored. Samples are taken at the end of each ROP.</condition>
+				<counterType>GAUGE</counterType>
+				<scanner>Primary</scanner>
+				<counterReset>false</counterReset>
+			</attribute>
+			<attribute name="biasThpWifiMobility">
+				<description>In order to send a UE to WiFi, a throughput comparison is made between WiFi and LTE.
+For comparisons made in eNodeB, a UE is admitted to WiFi if, WiFi throughput &gt; biasThpWifiMobility * LTE throughput.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>1</min>
+							<max>100</max>
+						</range>
+						<defaultValue>10</defaultValue>
+						<multiplicationFactor>0.1</multiplicationFactor>
+					</long>
+				</dataType>
+				<disturbances>Changing this attribute can affect traffic</disturbances>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="pmRimReportErr">
+				<description>Number of RIM reports received that contain an error message.</description>
+				<noNotification></noNotification>
+				<nonPersistent></nonPersistent>
+				<readOnly></readOnly>
+				<dataType>
+					<long></long>
+				</dataType>
+				<condition>RAN Information Multiple Report or initial message with error container is received.</condition>
+				<counterType>PEG</counterType>
+				<samplingRate>-</samplingRate>
+				<scanner>Not included in any predefined scanner </scanner>
+				<counterReset>true</counterReset>
+			</attribute>
+			<attribute name="pmRimAssocMax">
+				<description>Peak number of active RIM associations, that is, the rimAssociationStatus parameter value is RIM_ACTIVE.</description>
+				<noNotification></noNotification>
+				<nonPersistent></nonPersistent>
+				<readOnly></readOnly>
+				<dataType>
+					<long></long>
+				</dataType>
+				<condition>Internal level counter maintained by eNodeB. The internal level counter maintains  the current number of RIM associations with rimActive status. Counter is set equal to the peak sample at the end of each ROP.</condition>
+				<counterType>GAUGE</counterType>
+				<samplingRate>-</samplingRate>
+				<scanner>Not included in any predefined scanner </scanner>
+				<counterReset>true</counterReset>
+			</attribute>
+			<attribute name="tS1HoCancelTimer">
+				<description>The timeout time for receiving HANDOVER CANCEL ACKNOWLEDGE after RBS sent HO CANCEL message to MME.
+Value specifies supervision time of outgoing S1 HO Cancellation according to procedure described in 3GPP TS 36.413 section 8.4.5.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>1</min>
+							<max>30</max>
+						</range>
+						<defaultValue>3</defaultValue>
+						<unit>s</unit>
+					</long>
+				</dataType>
+				<takesEffect>Ongoing connection</takesEffect>
+			</attribute>
+			<attribute name="dnsSelectionS1X2Ref">
+				<description>Controls DNS selection for S1 and X2 lookups. If not set, DNS server on OAM network is used.
+
+For DU Radio Node it can be set to reference a DnsResolver, and DNS queries are resolved using referenced DnsResolver (typically using DNS server on transport network).
+
+For Baseband Radio Node it can be set to reference a DnsClient, and DNS queries are resolved using referenced DnsClient (typically using DNS server on transport network).</description>
+				<dataType>
+					<moRef name="ManagedObject"></moRef>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+				<precondition>To enable this attribute DNS servers must support EDNS0.</precondition>
+			</attribute>
+			<attribute name="releaseInactiveUesEnable">
+				<description>Controls if the release of inactive UEs at handover shall be enabled.</description>
+				<dataType>
+					<boolean>
+						<defaultValue>false</defaultValue>
+					</boolean>
+				</dataType>
+				<deprecated>Since L16A. Has no functional behavior. Planned to be removed.</deprecated>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="releaseInactiveUesInactTime">
+				<description>Inactivity time value to be used to decide release of inactive UEs at handover.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>0</min>
+							<max>32767</max>
+						</range>
+						<defaultValue>1</defaultValue>
+						<unit>s</unit>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="releaseInactiveUesMpLoadLevel">
+				<description>Minimum MP load level at which inactive UEs are released at handover.</description>
+				<dataType>
+					<enumRef name="HoNotAllowedMpLoadLevel">
+						<defaultValue>VERY_HIGH_LOAD</defaultValue>
+					</enumRef>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="combCellSectorSelectThreshTx">
+				<description>Used for PDSCH and PHICH sector selection in combined Cell. For each Ue, all sectors received power are compared against the primary sector. Sectors that are below the threshold will be selected.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>0</min>
+							<max>1800</max>
+						</range>
+						<defaultValue>300</defaultValue>
+						<unit>dB</unit>
+						<multiplicationFactor>0.1</multiplicationFactor>
+					</long>
+				</dataType>
+				<disturbances>Changes may affect Sector Selection.</disturbances>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="combCellSectorSelectThreshRx">
+				<description>Used for PUSCH sector selection in combined Cell. For each Ue, all sectors received power are compared against the primary sector. Only the primary and the best sector that is below the threshold will be selected.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>0</min>
+							<max>1800</max>
+						</range>
+						<defaultValue>300</defaultValue>
+						<unit>dB</unit>
+						<multiplicationFactor>0.1</multiplicationFactor>
+					</long>
+				</dataType>
+				<disturbances>Changes may affect Sector Selection.</disturbances>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="timePhaseMaxDeviationSib16">
+				<description>The maximum allowed time and phase deviation for time and phase synchronization of the eNodeB. It is the deviation that is allowed for SIB16 Time Information Broadcast feature to function. When the limit is exceeded, the feature is deactivated.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>9</min>
+							<max>100</max>
+						</range>
+						<defaultValue>100</defaultValue>
+						<unit>microseconds</unit>
+						<multiplicationFactor>0.1</multiplicationFactor>
+					</long>
+				</dataType>
+				<disturbances>Traffic can be affected if this attribute is changed. It can cause malfunction of the SIB16 Time Information Broadcast due to the time and phase deviation for time and phase synchronization of the eNodeB.</disturbances>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="timePhaseMaxDeviationMbms">
+				<description>The maximum allowed time and phase deviation for time and phase synchronization of the eNodeB. It is the deviation that is allowed for Multimedia Broadcast Multicast Service (MBMS) to function. When the limit is exceeded, the service is deactivated.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>9</min>
+							<max>100</max>
+						</range>
+						<defaultValue>50</defaultValue>
+						<unit>microseconds</unit>
+						<multiplicationFactor>0.1</multiplicationFactor>
+					</long>
+				</dataType>
+				<disturbances>Traffic can be affected if this attribute is changed. It can cause malfunction of the Multimedia Broadcast Multicast Service (MBMS) due to the time and phase deviation for time and phase synchronization of the eNodeB.</disturbances>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="timePhaseMaxDeviationOtdoa">
+				<description>The maximum allowed time and phase deviation for time and phase synchronization of the eNodeB. It is the deviation that is allowed for Observed Time Difference of Arrival (OTDOA) Support to function. When the limit is exceeded, the service is deactivated.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>9</min>
+							<max>100</max>
+						</range>
+						<defaultValue>9</defaultValue>
+						<unit>microseconds</unit>
+						<multiplicationFactor>0.1</multiplicationFactor>
+					</long>
+				</dataType>
+				<disturbances>Traffic can be affected if this attribute is changed. It can cause malfunction of the Observed Time Difference of Arrival (OTDOA) Support feature due to the time and phase deviation for time and phase synchronization of the eNodeB.</disturbances>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="timePhaseMaxDeviationCdma2000">
+				<description>The maximum allowed time and phase deviation for time and phase synchronization of the eNodeB. It is the deviation that is allowed for features related to CDMA2000 fallback and handover to function. When the limit is exceeded, some of the functionality is deactivated.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>9</min>
+							<max>100</max>
+						</range>
+						<defaultValue>100</defaultValue>
+						<unit>microseconds</unit>
+						<multiplicationFactor>0.1</multiplicationFactor>
+					</long>
+				</dataType>
+				<disturbances>Traffic can be affected if this attribute is changed. It can cause malfunction of the features related to CDMA2000 due to the time and phase deviation for time and phase synchronization of the eNodeB.</disturbances>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="timePhaseMaxDeviationTdd">
+				<description>The maximum allowed time and phase deviation for time and phase synchronization of the eNodeB for TDD cells. When the limit is exceeded, the TDD cells get disabled.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>9</min>
+							<max>100</max>
+						</range>
+						<defaultValue>15</defaultValue>
+						<unit>microseconds</unit>
+						<multiplicationFactor>0.1</multiplicationFactor>
+					</long>
+				</dataType>
+				<disturbances>Changing this attribute can affect traffic.</disturbances>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="timePhaseSynchStateSib16">
+				<description>Set to false when the SIB16 Time Information Broadcast feature is degraded due to time and phase synchronization accuracy requirements not fulfilled, otherwise it is set to true.</description>
+				<noNotification></noNotification>
+				<nonPersistent></nonPersistent>
+				<readOnly></readOnly>
+				<dataType>
+					<boolean></boolean>
+				</dataType>
+			</attribute>
+			<attribute name="timePhaseSynchStateMbms">
+				<description>Set to false when the Multimedia Broadcast Multicast Service (MBMS) feature is degraded due to time and phase synchronization accuracy requirements not fulfilled, otherwise it is set to true.</description>
+				<noNotification></noNotification>
+				<nonPersistent></nonPersistent>
+				<readOnly></readOnly>
+				<dataType>
+					<boolean></boolean>
+				</dataType>
+			</attribute>
+			<attribute name="timePhaseSynchStateOtdoa">
+				<description>Set to false when the Observed Time Difference of Arrival (OTDOA) feature is degraded due to time and phase synchronization accuracy requirements not fulfilled, otherwise it is set to true.</description>
+				<noNotification></noNotification>
+				<nonPersistent></nonPersistent>
+				<readOnly></readOnly>
+				<dataType>
+					<boolean></boolean>
+				</dataType>
+			</attribute>
+			<attribute name="timePhaseSynchStateCdma2000">
+				<description>Set to false when the features related to CDMA2000 are degraded due to time and phase synchronization accuracy requirements not fulfilled, otherwise it is set to true.</description>
+				<noNotification></noNotification>
+				<nonPersistent></nonPersistent>
+				<readOnly></readOnly>
+				<dataType>
+					<boolean></boolean>
+				</dataType>
+			</attribute>
+			<attribute name="timeAndPhaseSynchAlignment">
+				<description>If set to true, any time and phase synchronization accuracy-dependent feature is deactivated or degraded if its time and phase synchronization accuracy is not fulfilled.</description>
+				<dataType>
+					<boolean>
+						<defaultValue>false</defaultValue>
+					</boolean>
+				</dataType>
+				<disturbances>Changing this attribute can affect traffic.</disturbances>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="pmLic5Plus5MHzScFddActual">
+				<description>Current number of licensed 5+5 MHz Sector Carrier capacity units that are allocated to FDD cells. If the node has no FDD cells unlocked then counter reports 0 value.</description>
+				<noNotification></noNotification>
+				<nonPersistent></nonPersistent>
+				<readOnly></readOnly>
+				<dataType>
+					<long></long>
+				</dataType>
+				<condition>Utilization of 5+5 MHz Sector Carriers is monitored. Samples are taken at the end of each ROP.</condition>
+				<counterType>GAUGE</counterType>
+				<scanner>Primary</scanner>
+				<counterReset>false</counterReset>
+			</attribute>
+			<attribute name="pmLic5Plus5MHzScTddActual">
+				<description>Current number of licensed 5+5 MHz Sector Carrier capacity units that are allocated to TDD cells. If the node has no TDD cells unlocked then counter reports 0 value.</description>
+				<noNotification></noNotification>
+				<nonPersistent></nonPersistent>
+				<readOnly></readOnly>
+				<dataType>
+					<long></long>
+				</dataType>
+				<condition>Utilization of 5+5 MHz Sector Carriers is monitored. Samples are taken at the end of each ROP.</condition>
+				<counterType>GAUGE</counterType>
+				<scanner>Primary</scanner>
+				<counterReset>false</counterReset>
+			</attribute>
+			<attribute name="licConnectedUsersPercentileConf">
+				<description>The percentile to use for the counter pmLicConnectedUsersActual.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>1</min>
+							<max>100</max>
+						</range>
+						<defaultValue>90</defaultValue>
+						<unit>%</unit>
+					</long>
+				</dataType>
+			</attribute>
+			<attribute name="licDlBbPercentileConf">
+				<description>The percentile to use for the counter BbProcessingResource::pmLicDlCapActual.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>1</min>
+							<max>100</max>
+						</range>
+						<defaultValue>90</defaultValue>
+						<unit>%</unit>
+					</long>
+				</dataType>
+			</attribute>
+			<attribute name="licUlBbPercentileConf">
+				<description>The percentile to use for the counter BbProcessingResource::pmLicUlCapActual.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>1</min>
+							<max>100</max>
+						</range>
+						<defaultValue>90</defaultValue>
+						<unit>%</unit>
+					</long>
+				</dataType>
+			</attribute>
+			<attribute name="licDlPrbPercentileConf">
+				<description>The percentile to use for the counter BbProcessingResource::pmLicDlPrbCapActual.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>1</min>
+							<max>100</max>
+						</range>
+						<defaultValue>90</defaultValue>
+						<unit>%</unit>
+					</long>
+				</dataType>
+			</attribute>
+			<attribute name="licUlPrbPercentileConf">
+				<description>The percentile to use for the counter BbProcessingResource::pmLicUlPrbCapActual.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>1</min>
+							<max>100</max>
+						</range>
+						<defaultValue>90</defaultValue>
+						<unit>%</unit>
+					</long>
+				</dataType>
+			</attribute>
+			<attribute name="pmLicConnectedUsersActual">
+				<description>The X percentile of the utilization for connected users during a measurement period. The value for X is set in the attribute licConnectedUsersPercentileConf.
+
+Source Data: licConnectedUsersPercentileConf and pmLicConnectedUsersDistr</description>
+				<noNotification></noNotification>
+				<nonPersistent></nonPersistent>
+				<readOnly></readOnly>
+				<dataType>
+					<long>
+						<unit>%</unit>
+					</long>
+				</dataType>
+				<condition>Is calculated at the end of a ROP period.</condition>
+				<counterType>GAUGE</counterType>
+				<scanner>Primary</scanner>
+				<counterReset>true</counterReset>
+			</attribute>
+			<attribute name="pmLicConnectedUsersDistr">
+				<description>Shows the utilization of connected users relative to the installed license for Connected Users. Expressed as percentage of the license limit.
+
+PDF ranges:
+[0]: [0..5]%
+[1]: ]5..10]%
+[2]: ]10..15]%
+[3]: ]15..20]%
+[4]: ]20..25]%
+[5]: ]25..30]%
+[6]: ]30..35]%
+[7]: ]35..40]%
+[8]: ]40..45]%
+[9]: ]45..50]%
+[10]: ]50..55]%
+[11]: ]55..60]%
+[12]: ]60..65]%
+[13]: ]65..70]%
+[14]: ]70..75]%
+[15]: ]75..80]%
+[16]: ]80..85]%
+[17]: ]85..90]%
+[18]: ]90..95]%
+[19]: ]95..100]%
+[20]: ]100..125]%
+[21]: ]125..150]%
+[22]: ]150..200]%
+[23]: ]200..65535]%</description>
+				<noNotification></noNotification>
+				<nonPersistent></nonPersistent>
+				<readOnly></readOnly>
+				<dataType>
+					<sequence>
+					<long>
+						<unit>%</unit>
+					</long>
+						<minLength>0</minLength>
+						<maxLength>24</maxLength>
+						<nonUnique/>
+					</sequence>
+				</dataType>
+				<condition>The counter is stepped each second.</condition>
+				<counterType>PDF</counterType>
+				<scanner>Primary</scanner>
+				<counterReset>true</counterReset>
+			</attribute>
+			<attribute name="pmLicConnectedUsersLevSamp">
+				<description>Number of times pmLicConnectedUsersLevSum has been incremented. Associated ACC pmCounter pmLicConnectedUsersLevSum.</description>
+				<noNotification></noNotification>
+				<nonPersistent></nonPersistent>
+				<readOnly></readOnly>
+				<dataType>
+					<long></long>
+				</dataType>
+				<condition>The counter is increased at every occasion when the corresponding sum counter has accumulated a new sample.</condition>
+				<counterType>SCAN</counterType>
+				<samplingRate>5</samplingRate>
+				<scanner>Primary</scanner>
+				<counterReset>true</counterReset>
+			</attribute>
+			<attribute name="pmLicConnectedUsersLevSum">
+				<description>Sum of all sample values recorded for "Connected Users".</description>
+				<noNotification></noNotification>
+				<nonPersistent></nonPersistent>
+				<readOnly></readOnly>
+				<dataType>
+					<long></long>
+				</dataType>
+				<condition>This counter is based on an internal level counter maintaining the current number of Connected Users. Values are read periodically and accumulated.</condition>
+				<counterType>ACC</counterType>
+				<samplingRate>5</samplingRate>
+				<scanner>Primary</scanner>
+				<counterReset>true</counterReset>
+			</attribute>
+			<attribute name="pmLicConnectedUsersLicense">
+				<description>The licensed value for connected users. The value reflects the capacity value in the license key file, that is the value of the attribute licensedCapacity in the CapacityConnectedUsers instance of the MO class CapacityFeatureLicense.
+If the value is -100, it means the Connected Users feature uses the Not Contractually Limited model.
+
+Source attribute: CapacityFeatureLicense::licensedCapacity in CapacityConnectedUsers instance of CapacityFeatureLicense.</description>
+				<noNotification></noNotification>
+				<nonPersistent></nonPersistent>
+				<readOnly></readOnly>
+				<dataType>
+					<long></long>
+				</dataType>
+				<condition>Is changed when a new license key file with a new value for number of connected users is installed on the RBS.</condition>
+				<counterType>GAUGE</counterType>
+				<scanner>Primary</scanner>
+				<counterReset>true</counterReset>
+			</attribute>
+			<attribute name="pmLicConnectedUsersMax">
+				<description>Peak number of Connected Users.</description>
+				<noNotification></noNotification>
+				<nonPersistent></nonPersistent>
+				<readOnly></readOnly>
+				<dataType>
+					<long></long>
+				</dataType>
+				<condition>This counter is based on an internal level counter maintained by eNB. The internal level counter maintains the current number of Connected Users. pmLicConnectedUsersMax is updated when the internal level counter shows a higher level.</condition>
+				<counterType>GAUGE</counterType>
+				<scanner>Primary</scanner>
+				<counterReset>true</counterReset>
+			</attribute>
+			<attribute name="pmLicConnectedUsersTimeCong">
+				<description>Accumulated time during the ROP when the number of connected users is equal to or greater than the licensed value.</description>
+				<noNotification></noNotification>
+				<nonPersistent></nonPersistent>
+				<readOnly></readOnly>
+				<dataType>
+					<long>
+						<unit>seconds</unit>
+					</long>
+				</dataType>
+				<condition>Is stepped each second when the number of connected users is equal to or greater than the licensed limit for number of connected users.</condition>
+				<counterType>PEG</counterType>
+				<scanner>Primary</scanner>
+				<counterReset>true</counterReset>
+			</attribute>
+			<attribute name="pmLicDlCapLicense">
+				<description>The licensed capacity limit for downlink baseband capacity. The value reflects the capacity value in the license key file, that is the value of the attribute licensedCapacity in the DlBasebandCapacity instance of the MO class CapacityFeatureLicense.
+
+Source attribute: CapacityFeatureLicense::licensedCapacity in DlBasebandCapacity instance of CapacityFeatureLicense.
+</description>
+				<noNotification></noNotification>
+				<nonPersistent></nonPersistent>
+				<readOnly></readOnly>
+				<dataType>
+					<long>
+						<unit>Mbps (1 000 000 bits/s)</unit>
+					</long>
+				</dataType>
+				<condition>Is changed when a new license key file with a new value for downlink baseband capacity is installed on the RBS.</condition>
+				<counterType>GAUGE</counterType>
+				<scanner>Primary</scanner>
+				<counterReset>true</counterReset>
+			</attribute>
+			<attribute name="pmLicUlCapLicense">
+				<description>The licensed capacity limit for uplink baseband capacity. The value reflects the capacity value in the license key file, that is the value of the attribute licensedCapacity in the UlBasebandCapacity instance of the MO class CapacityFeatureLicense.
+
+Source attribute: CapacityFeatureLicense::licensedCapacity in UlBasebandCapacity instance of CapacityFeatureLicense.</description>
+				<noNotification></noNotification>
+				<nonPersistent></nonPersistent>
+				<readOnly></readOnly>
+				<dataType>
+					<long>
+						<unit>Mbps (1 000 000 bits/s)</unit>
+					</long>
+				</dataType>
+				<condition>Is changed when a new license key file with a new value for uplink baseband capacity is installed on the RBS.</condition>
+				<counterType>GAUGE</counterType>
+				<scanner>Primary</scanner>
+				<counterReset>true</counterReset>
+			</attribute>
+			<attribute name="pmLicDlPrbCapLicense">
+				<description>The licensed capacity limit for DL PRB capacity. The value reflects the capacity value in the license key file, that is the value of the attribute licensedCapacity in the DlPrbCapacity instance of the MO class CapacityFeatureLicense..
+If the value is -100, it means DL PRB capacity uses the Not Contractually Limited model.
+
+Source attribute: CapacityFeatureLicense::licensedCapacity in DlPrbCapacity instance of CapacityFeatureLicense.</description>
+				<noNotification></noNotification>
+				<nonPersistent></nonPersistent>
+				<readOnly></readOnly>
+				<dataType>
+					<long>
+						<unit>Number of PRBs</unit>
+					</long>
+				</dataType>
+				<condition>Is changed when a new license key file with a new value for DL PRB capacity is installed on the RBS.</condition>
+				<counterType>GAUGE</counterType>
+				<scanner>Primary</scanner>
+				<counterReset>true</counterReset>
+			</attribute>
+			<attribute name="pmLicUlPrbCapLicense">
+				<description>The licensed capacity limit for UL PRB capacity. The value reflects the capacity value in the license key file, that is the value of the attribute licensedCapacity in the UlPrbCapacity instance of the MO class CapacityFeatureLicense..
+If the value is -100, it means UL PRB capacity uses the Not Contractually Limited model.
+
+Source attribute: CapacityFeatureLicense::licensedCapacity in UlPrbCapacity instance of CapacityFeatureLicense.</description>
+				<noNotification></noNotification>
+				<nonPersistent></nonPersistent>
+				<readOnly></readOnly>
+				<dataType>
+					<long>
+						<unit>Number of PRBs</unit>
+					</long>
+				</dataType>
+				<condition>Is changed when a new license key file with a new value for UL PRB capacity is installed on the RBS.</condition>
+				<counterType>GAUGE</counterType>
+				<scanner>Primary</scanner>
+				<counterReset>true</counterReset>
+			</attribute>
+			<attribute name="mtRreWithoutNeighborActive">
+				<description>Enables or disables the RRC Connection Reestablishment in source cell when there is no target neighbor cell information.</description>
+				<dataType>
+					<boolean>
+						<defaultValue>true</defaultValue>
+					</boolean>
+				</dataType>
+				<dependencies>This attribute is only effective when feature Multi-Target RRC Connection Reestablishment is activated.</dependencies>
+				<takesEffect>New connection</takesEffect>
+			</attribute>
+			<attribute name="checkEmergencySoftLock">
+				<description>Used to turn on and off the function for checking existence of emergency calls.</description>
+				<dataType>
+					<boolean>
+						<defaultValue>false</defaultValue>
+					</boolean>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="softLockRwRWaitTimerInternal">
+				<description>Length of waiting time before soft-lock of cell starts to release all ongoing calls with Release with Redirect (RwR), when eNodeB internally triggers soft-lock of cell.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>20</min>
+							<max>80</max>
+						</range>
+						<defaultValue>60</defaultValue>
+						<unit>s</unit>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="softLockRwRWaitTimerOperator">
+				<description>Length of waiting time before soft-lock of cell starts to release all ongoing calls with Release with Redirect (RwR), when operator triggers soft-lock of cell.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>20</min>
+							<max>80</max>
+						</range>
+						<defaultValue>60</defaultValue>
+						<unit>s</unit>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="mfbiSupportPolicy">
+				<description>A policy parameter that sets the start value of the attribute mfbiSupport when an ExternalENodeBFunction is automatically created by the eNodeB.</description>
+				<dataType>
+					<boolean>
+						<defaultValue>false</defaultValue>
+					</boolean>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary28">
+				<description>Temporary attributes are intended as temporary solutions. Their usage can vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use can be overridden by the information in CPI documents. Note that a later release can use another attribute to control functionality previously provided by a temporary attribute, or can remove functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary29">
+				<description>Temporary attributes are intended as temporary solutions. Their usage can vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use can be overridden by the information in CPI documents. Note that a later release can use another attribute to control functionality previously provided by a temporary attribute, or can remove functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary30">
+				<description>Temporary attributes are intended as temporary solutions. Their usage can vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use can be overridden by the information in CPI documents. Note that a later release can use another attribute to control functionality previously provided by a temporary attribute, or can remove functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary31">
+				<description>Temporary attributes are intended as temporary solutions. Their usage can vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use can be overridden by the information in CPI documents. Note that a later release can use another attribute to control functionality previously provided by a temporary attribute, or can remove functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary32">
+				<description>Temporary attributes are intended as temporary solutions. Their usage can vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use can be overridden by the information in CPI documents. Note that a later release can use another attribute to control functionality previously provided by a temporary attribute, or can remove functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary33">
+				<description>Temporary attributes are intended as temporary solutions. Their usage can vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use can be overridden by the information in CPI documents. Note that a later release can use another attribute to control functionality previously provided by a temporary attribute, or can remove functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary34">
+				<description>Temporary attributes are intended as temporary solutions. Their usage can vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use can be overridden by the information in CPI documents. Note that a later release can use another attribute to control functionality previously provided by a temporary attribute, or can remove functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="tddVoipDrxProfileId">
+				<description>DrxProfile ID used for TDD VOIP bearers on a mixed FDD/TDD eNodeB. The default value results in TDD using the same DrxProfile as FDD for VOIP bearers.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>-1</min>
+							<max>17</max>
+						</range>
+						<defaultValue>-1</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>New connection</takesEffect>
+			</attribute>
+			<attribute name="measuringEcgiWithAgActive">
+				<description>Configures use of autonomous gap as method of CGI measurement. If enabled, capable UEs are configured to use autonomous gap for CGI measurement to target LTE or UTRAN cell.</description>
+				<dataType>
+					<boolean>
+						<defaultValue>false</defaultValue>
+					</boolean>
+				</dataType>
+				<dependencies>This attribute is effective only when ANR for LTE or UTRAN feature is activated.</dependencies>
+				<takesEffect>New connection</takesEffect>
+			</attribute>
+			<attribute name="enabledUlTrigMeas">
+				<description>Enables or disables the UL SINR max measurements and event triggers for the UL quality. Only has effect if license for Uplink-Triggered Inter-Frequency Mobility is not installed.</description>
+				<dataType>
+					<boolean>
+						<defaultValue>false</defaultValue>
+					</boolean>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="adaptiveRlcRetxDl">
+				<description>Shows if Adaptive RLC Retransmission in DL is active or not.</description>
+				<dataType>
+					<boolean>
+						<defaultValue>false</defaultValue>
+					</boolean>
+				</dataType>
+				<deprecated>Since L16B. Has no functional behavior. Planned to be removed.</deprecated>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="ulMaxWaitingTimeGlobal">
+				<description>The targeted maximum allowed time between scheduling occasions of an UL bearer. A bearer that is not scheduled within the specified time is given higher priority. Value 0 means that the higher priority is never applied. It is recommended to set the value =&lt; than the PDB. A value that is set too low can affect other services with higher priority.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>0</min>
+							<max>500</max>
+						</range>
+						<defaultValue>0</defaultValue>
+						<unit>ms</unit>
+					</long>
+				</dataType>
+				<dependencies>Only used for Resource Fair Scheduling algorithm. Only relevant if the license for Dynamic UE Admission Control is present and the feature is active.</dependencies>
+				<simulatedEntitySpecification>3GPP TS 23.203</simulatedEntitySpecification>
+				<disturbances>Changing this attribute can affect performance of all data bearers. A value that is set too low can affect other services with higher priority. A value that is set too high can cause Dynamic UE Admission Control to fail in keeping the cell stable at overload.</disturbances>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="dlMaxWaitingTimeGlobal">
+				<description>The targeted maximum allowed time between scheduling occasions of a DL bearer. A bearer that is not scheduled within the specified time is given higher priority. Value 0 means that the higher priority is never applied. It is recommended to set the value =&lt; than the PDB. A value that is set too low can affect other services with higher priority.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>0</min>
+							<max>500</max>
+						</range>
+						<defaultValue>0</defaultValue>
+						<unit>ms</unit>
+					</long>
+				</dataType>
+				<dependencies>Only used for Resource Fair Scheduling algorithm. Only relevant if the license for Dynamic UE Admission Control is present and the feature is active.</dependencies>
+				<simulatedEntitySpecification>3GPP TS 23.203</simulatedEntitySpecification>
+				<disturbances>Changing this attribute can affect performance of all data bearers. A value that is set too low can affect other services with higher priority. A value that is set too high can cause Dynamic UE Admission Control to fail in keeping the cell stable at overload.</disturbances>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="tRelocOverall">
+				<description>Supervision timer of the outgoing S1/X2/intra-eNodeB handover execution procedure according to 3GPP TS 36.413 and TS 36.423.
+If the feature Multi-Target RRC Connection Re-establishment is active this timer also supervises the Context Fetch procedure.</description>
+				<dataType>
+					<long>
+						<range>
+							<min>1</min>
+							<max>20</max>
+						</range>
+						<defaultValue>5</defaultValue>
+						<unit>s</unit>
+					</long>
+				</dataType>
+				<takesEffect>New connection</takesEffect>
+			</attribute>
+			<attribute name="alignTtiBundWUlTrigSinr">
+				<description>Configures UL quality measure type utilized for decisions on when to configure and de-configure TTI Bundling. If setting is &apos;ULTRIG&apos; uplink SINR value from &apos;Uplink-Triggered Inter-Frequency Mobility&apos; is used for TTI Bundling.</description>
+				<dataType>
+					<enumRef name="TtiBundTriggerAlignment">
+						<defaultValue>OFF</defaultValue>
+					</enumRef>
+				</dataType>
+				<takesEffect>New connection</takesEffect>
+			</attribute>
+			<attribute name="bbVlanPortRef">
+				<description>Refers to the VlanPort instance to use for configuring the EthernetPort VLAN for a set of BB links.</description>
+				<dataType>
+					<moRef name="ManagedObject"></moRef>
+				</dataType>
+				<disturbances>Changing this attribute can affect traffic. A node restart is required.</disturbances>
+				<takesEffect>At node restart</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary35">
+				<description>Temporary attributes are intended as temporary solutions. Their usage can vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use can be overridden by the information in CPI documents. Note that a later release can use another attribute to control functionality previously provided by a temporary attribute, or can remove functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary36">
+				<description>Temporary attributes are intended as temporary solutions. Their usage can vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use can be overridden by the information in CPI documents. Note that a later release can use another attribute to control functionality previously provided by a temporary attribute, or can remove functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary37">
+				<description>Temporary attributes are intended as temporary solutions. Their usage can vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use can be overridden by the information in CPI documents. Note that a later release can use another attribute to control functionality previously provided by a temporary attribute, or can remove functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary38">
+				<description>Temporary attributes are intended as temporary solutions. Their usage can vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use can be overridden by the information in CPI documents. Note that a later release can use another attribute to control functionality previously provided by a temporary attribute, or can remove functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary39">
+				<description>Temporary attributes are intended as temporary solutions. Their usage can vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use can be overridden by the information in CPI documents. Note that a later release can use another attribute to control functionality previously provided by a temporary attribute, or can remove functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="zzzTemporary40">
+				<description>Temporary attributes are intended as temporary solutions. Their usage can vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use can be overridden by the information in CPI documents. Note that a later release can use another attribute to control functionality previously provided by a temporary attribute, or can remove functionality altogether. In these cases, the change is documented in the NIR.</description>
+				<dataType>
+					<long>
+						<defaultValue>-2000000000</defaultValue>
+					</long>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+			</attribute>
+			<attribute name="caAwareMfbiIntraCellHo">
+				<description>Activation/deactivation of feature Intra-Cell Handover to Additional Band.</description>
+				<dataType>
+					<boolean>
+						<defaultValue>false</defaultValue>
+					</boolean>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+				<precondition>Requires support for the feature Multiple Frequency Band Indicators in the eNB.</precondition>
+			</attribute>
+			<attribute name="prioritizeAdditionalBands">
+				<description>When enabled, additional frequency bands have higher priority than primary frequency band in secondary cell evaluation.</description>
+				<dataType>
+					<boolean>
+						<defaultValue>false</defaultValue>
+					</boolean>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+				<precondition>useBandPrioritiesInSCellEval must be enabled.</precondition>
+			</attribute>
+			<attribute name="useBandPrioritiesInSCellEval">
+				<description>When enabled, secondary cell evaluation is done according to priorities in prioritizeAdditionalBands and EUtranCellFDD/EUtranCellTDD::prioAdditionalFreqBandList.</description>
+				<dataType>
+					<boolean>
+						<defaultValue>false</defaultValue>
+					</boolean>
+				</dataType>
+				<takesEffect>Immediately</takesEffect>
+				<precondition>caAwareMfbiIntraCellHo must be enabled.</precondition>
+			</attribute>
+			<action name="updateMMEConnection">
+				<description>This action shall make it possible to order the RBS to make a new DNS lookup to get possible new MME Pool addresses. The orderCode has two different options:
+
+- Retain: This option will retain all connections that were included in DNS response and the connections that were not included in the response will be removed. For the IP addresses that were unknown for the RBS, the RBS will establish connections to those MMEs.
+
+
+- Renew All existing: The RBS performs a DNS lookup. Release all S1 connections to the MMEs and connect to the MMEs that are included in the DNS response.
+
+This action should be used only when dnsLookupOnTai has the value ON. The action is rejected if dnsLookupState has the value OFF.</description>
+				<returnType>
+					<void></void>
+				</returnType>
+				<parameter name="orderCode">
+					<in></in>
+					<dataType>
+						<enumRef name="OrderCode"></enumRef>
+					</dataType>
+				</parameter>
+				<raisesException name="DnsLookupOffException"/>
+				<transactionRequired>true</transactionRequired>
+			</action>
+			<action name="collectDynamicCellStatus">
+				<description>Returns a snapshot of the traffic status of the node divided per cell, in the form; number of attached UEs and set up radio bearers.</description>
+				<returnType>
+					<string></string>
+				</returnType>
+				<parameter name="dynamicCellStatusOutput">
+					<description>Specifies the format of the returned information. It can be either of:
+- Unformatted text, suitable for on-screen reading.
+- Formatted text, suitable for automated interpretation, currently JSON (JavaScript Object Notation).</description>
+					<in></in>
+					<dataType>
+						<enumRef name="DynamicCellStatusOutput"></enumRef>
+					</dataType>
+				</parameter>
+				<raisesException name="DynamicCellStatusException"/>
+				<transactionRequired>false</transactionRequired>
+			</action>
+		</class>
+		<relationship name="ManagedElement_to_ENodeBFunction">
+			<containment>
+				<parent>
+					<hasClass name="ManagedElement"/>
+				</parent>
+				<child>
+					<hasClass name="ENodeBFunction"/>
+					<cardinality>
+						<min>1</min>
+						<max>1</max>
+					</cardinality>
+				</child>
+			</containment>
+		</relationship>
+		<relationship name="AntennaUnitGroup_positionRef_to_HwGroup_reservedBy">
+			<biDirectionalAssociation>
+				<associationEnd name="reservedBy">
+					<hasClass name="AntennaUnitGroup"/>
+					<cardinality>
+						<min>0</min>
+					</cardinality>
+				</associationEnd>
+				<associationEnd name="positionRef">
+					<hasClass name="HwGroup"/>
+					<cardinality>
+						<min>0</min>
+						<max>1</max>
+					</cardinality>
+				</associationEnd>
+			</biDirectionalAssociation>
+		</relationship>
+    </mim>
+</models>
